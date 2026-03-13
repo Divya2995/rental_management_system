@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Rental Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏠 Property Rental Management System</h1>
+        </header>
+
+        <div class="controls">
+            <button id="addPropertyBtn" class="btn btn-primary">+ Add New Property</button>
+            <div class="search-filter">
+                <input type="text" id="searchLocation" placeholder="Search by location...">
+                <select id="filterStatus">
+                    <option value="">All Properties</option>
+                    <option value="Available">Available</option>
+                    <option value="Rented">Rented</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="propertyModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="modalTitle">Add New Property</h2>
+                <form id="propertyForm">
+                    <input type="hidden" id="propertyId">
+                    
+                    <div class="form-group">
+                        <label for="propertyTitle">Property Title *</label>
+                        <input type="text" id="propertyTitle" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location *</label>
+                        <input type="text" id="location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="rentAmount">Rent Amount ($) *</label>
+                        <input type="number" id="rentAmount" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="propertyType">Property Type *</label>
+                        <select id="propertyType" required>
+                            <option value="">Select Type</option>
+                            <option value="Apartment">Apartment</option>
+                            <option value="House">House</option>
+                            <option value="Commercial">Commercial</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="ownerName">Owner Name *</label>
+                        <input type="text" id="ownerName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availabilityStatus">Availability Status</label>
+                        <select id="availabilityStatus">
+                            <option value="Available">Available</option>
+                            <option value="Rented">Rented</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-success">Save Property</button>
+                        <button type="button" class="btn btn-secondary" id="cancelBtn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="propertiesContainer" class="properties-grid"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
